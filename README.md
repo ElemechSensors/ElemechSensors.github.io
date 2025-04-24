@@ -1,10 +1,13 @@
-# Anders Frem Wolstrup, Jon Spangenberg, Akio Yamamoto, Andrew Gleadall, and Gabriel Zsurzsan: "Advances in 3D Printed Electromechanical Sensors: Interactive Plots and Data". Under revision: Additive Manufacturing
+# Anders Frem Wolstrup, Jon Spangenberg, Akio Yamamoto, Andrew Gleadall, and Gabriel Zsurzsan: "Advances in 3D Printed Electromechanical Sensors: Interactive Plots and Data".  
+**Under revision: Additive Manufacturing**
 
 This repository contains interactive plots and accompanying data from the paper:
 
 **"Advances in 3D Printed Electromechanical Sensors: Performance Comparison, Trends, and Future Directions"**
 
 by **Anders Frem Wolstrup, Jon Spangenberg, Akio Yamamoto, Andrew Gleadall, and Gabriel Zsurzsan**.
+
+---
 
 ## Abstract
 
@@ -16,10 +19,15 @@ Beyond quantitative comparison, this review introduces a framework for categoriz
 
 The review also highlights advances in 3D printing for electronics manufacturing to inspire future directions and concludes with six recommendations for sensor development, focusing on aligning sensing mechanisms with appropriate fabrication strategies and aiding metric standardization across the field.
 
+---
+
 ## Repository Contents
 
-- **CSV files**: Contain the dataset extracted from literature, used for generating plots.
-- **Python Notebook (`InteractivePlot_test.ipynb`)**: Contains Python code for generating interactive plots.
+- **Data/**: Contains CSV files used to generate the interactive plots, extracted from the literature.
+- **index.html**: Interactive dashboard displaying sensor performance plots based on the dataset.
+- **README.md**: This document.
+
+---
 
 ## Interactive Plots
 
@@ -27,9 +35,25 @@ Explore the interactive version of the plots (Figure 7 and Figure 8 from the pap
 
 🔗 [Interactive Plots on GitHub Pages](https://ElemechSensors.github.io/)
 
+---
+
+## Contributing
+
+We welcome contributions to expand and refine the dataset of 3D printed electromechanical sensors.
+
+If you would like to contribute:
+
+1. Add your data in the same format to the appropriate `.csv` file(s) in the **`Data/`** directory (e.g., `ForceData.csv`, `PressureData.csv`, `StrainData.csv`).
+2. Ensure your entries are accurate and consistent with the existing data structure.
+3. Submit a pull request with a brief description of your addition.
+
+You can also open an issue for discussion, clarification, or assistance with formatting.
+
+---
+
 ## Note
 
-This repository and the interactive plots webpage are currently **proof of concept** implementations to demonstrate the potential for interactive data visualization of performance metrics for 3D printed electromechanical sensors.
+This repository and the interactive plots webpage are currently a **proof-of-concept** implementation to demonstrate the potential for interactive data visualization of performance metrics for 3D printed electromechanical sensors.
 
 ---
 
