@@ -23,15 +23,21 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
       gap: 30px;
-      justify-content: center;
+      width: 100%;
     }
+
+    .grid.one-column {
+      grid-template-columns: 1fr;
+    }
+
+    .grid.two-columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     .plot {
-      width: 100% !important;
-      max-width: 100%;
-      height: auto;
-      overflow-x: auto;
+      width: 100%;
+      min-height: 700px;
     }
   </style>
 </head>
@@ -187,9 +193,6 @@
             }
           }
 
-          const isMobile = window.innerWidth < 768;
-          const plotWidth = isMobile ? window.innerWidth - 40 : 700;
-
           const layout = {
             title: title,
             xaxis: {
@@ -197,14 +200,14 @@
                 text: xlabel,
                 standoff: 10
               },
-              type: 'log'
+              type: 'log',
             },
             yaxis: {
               title: {
                 text: ylabel,
                 standoff: 10
               },
-              type: 'log'
+              type: 'log',
             },
             legend: {
               orientation: "h",
@@ -212,11 +215,9 @@
               groupclick: "toggleitem"
             },
             margin: { b: 250 },
-            width: plotWidth,
-            height: 700
           };
 
-          Plotly.newPlot(divId, traces, layout, { responsive: true });
+          Plotly.newPlot(divId, traces, layout, {responsive: true, displayModeBar: true, useResizeHandler: true});
           document.getElementById(divId).on('plotly_click', function(data){
             const pointIndex = data.points[0].pointIndex;
             const doi = data.points[0].text;
@@ -235,6 +236,27 @@
 
     loadAndPlot('Data/StrainData.csv', 'plot-strain-left', 'left', 'Strain: Printing Process vs Electrical Principle','Strain', 'Gauge factor')
     loadAndPlot('Data/StrainData.csv', 'plot-strain-right', 'right', 'Strain: Material vs Sensing Basis','Strain', 'Gauge Factor')
+
+    function setGridLayout() {
+      const grid = document.querySelector('.grid');
+      const aspectRatio = window.innerWidth / window.innerHeight;
+
+      if (aspectRatio < 1) {
+        // Portrait (tall screen) → 1 column
+        grid.classList.remove('two-columns');
+        grid.classList.add('one-column');
+      } else {
+        // Landscape (wide screen) → 2 columns
+        grid.classList.remove('one-column');
+        grid.classList.add('two-columns');
+      }
+    }
+
+    // Call once on page load
+    setGridLayout();
+
+    // Call again on window resize/orientation change
+    window.addEventListener('resize', setGridLayout);
   </script>
 </body>
 </html>
