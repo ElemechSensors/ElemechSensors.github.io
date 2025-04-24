@@ -147,7 +147,7 @@
 
           const data = cleanedData.slice(1); // Skip header
 
-          const x = data.map(row => abs(parseFloat(row[5]) - parseFloat(row[4])));
+          const x = data.map(row => Math.abs(parseFloat(row[5]) - parseFloat(row[4])));
           const y = data.map(row => parseFloat(row[7]));
           const ele = data.map(row => row[1]);
           const mat = data.map(row => row[9]);
