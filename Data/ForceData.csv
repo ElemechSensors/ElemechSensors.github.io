@@ -1,5 +1,5 @@
 Reference,Ele principle,Sensing,Print,M0,M,Delta Er,Rel Sensitivity,Directly Printed,Mat,Custom mat,DOI
-A. Wolstrup et al. 2023,Piezoresistive,Surface,FDM,2.0,5.0,-0.096153846,0.035460993,Yes,Carbon,No,10.1016/j.addlet.2023.100178
+A. Wolstrup et al. 2023,Piezoresistive,Surface,FDM,2.0,5.0,-0.096153846,0.035460993,Yes,Carbon,No,10.1109/LSENS.2023.3266895
 G. Wolterink et al. 2019,Piezoresistive,Material,FDM,0.5,10.5,0.116666667,0.011666667,Yes,Carbon,No,10.1109/SENSORS43011.2019.8956757
 J. Xu et al. 2024,Piezoresistive,Material,FDM,0.0,13.0,0.013,0.001,Yes,Carbon,No,10.1109/ACCESS.2024.3390932
 Q. Ji et al. 2022,Piezoresistive,Surface,FDM,9.0,14.0,0.076923077,0.015384615,Yes,Carbon,No,10.3233/ATDE220178
