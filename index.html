@@ -28,8 +28,10 @@
       justify-content: center;
     }
     .plot {
-      width: 100%;
-      height: 700px;
+      width: 100% !important;
+      max-width: 100%;
+      height: auto;
+      overflow-x: auto;
     }
   </style>
 </head>
@@ -185,6 +187,9 @@
             }
           }
 
+          const isMobile = window.innerWidth < 768;
+          const plotWidth = isMobile ? window.innerWidth - 40 : 700;
+
           const layout = {
             title: title,
             xaxis: {
@@ -207,11 +212,11 @@
               groupclick: "toggleitem"
             },
             margin: { b: 250 },
-            width: 700,
+            width: plotWidth,
             height: 700
           };
 
-          Plotly.newPlot(divId, traces, layout);
+          Plotly.newPlot(divId, traces, layout, { responsive: true });
           document.getElementById(divId).on('plotly_click', function(data){
             const pointIndex = data.points[0].pointIndex;
             const doi = data.points[0].text;
