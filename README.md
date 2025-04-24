@@ -1,4 +1,4 @@
-# Advances in 3D Printed Electromechanical Sensors: Interactive Plots and Data
+# Anders Frem Wolstrup, Jon Spangenberg, Akio Yamamoto, Andrew Gleadall, and Gabriel Zsurzsan: "Advances in 3D Printed Electromechanical Sensors: Interactive Plots and Data". Under revision: Additive Manufacturing
 
 This repository contains interactive plots and accompanying data from the paper:
 
