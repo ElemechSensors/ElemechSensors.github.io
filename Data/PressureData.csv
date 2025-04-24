@@ -1,15 +1,15 @@
-Reference,Ele principle,Ele Principle num,Sensing,Sensing num,Print,Print num,M0,M,Delta Er,Rel Sensitivity,Directly Printed,Mat,Mat num,Custom mat,Print concat,Sens concat,DOI
-Z. Li et al. 2023,Piezoresistive,1,Porous,4,FDM,1,0,5700,-7.50E-01,5.26E-04,b,Carbon,1,b,FDM-b,Porous-b,10.1002/smll.202301378
-C. Ma et al. 2023,Piezoresistive,1,Material,1,DIW,2,0,10,4.50E+03,4.50E+02,b,Carbon,1,b,DIW-b,Material-b,10.1016/j.jmapro.2023.01.008
-M. Binelli et al. 2023,Piezoresistive,1,Material,1,DIW,2,200,1000,1.74E+00,2.17E-03,b,Carbon,1,b,DIW-b,Material-b,10.1038/s41598-023-29261-0
-Z. Tang et al. 2020,Piezoresistive,1,Surface,3,DIW,2,0,175,1.60E+01,9.14E-02,b,Carbon,1,b,DIW-b,Surface-b,10.1021/acsami.0c06977
-T. Xia et al. 2021,Piezoresistive,1,Microcracks,5,SLA,6,0,0.1,4.20E-01,4.20E+00,a,Metal,2,a,SLA-a,Microcracks-a,10.1002/admt.202000984
-Y. Yin et al. 2021,Piezoresistive,1,Porous,4,DLP,5,0,130,1.33E+02,1.02E+00,a,Carbon,1,b,DLP-a,Porous-b,10.1021/acsami.0c21407 
-H. Moeinnia et al. 2024,Capacitance,2,Displacement,6,FDM,1,0,2500,5.00E-01,2.00E-04,b,Carbon,1,a,FDM-b,Displacement-a,10.1038/s41528-024-00309-z
-M. Ntagios et al. 2021,Capacitance,2,Displacement,6,FDM,1,0,35,1.25E-01,3.57E-03,b,Carbon,1,a,FDM-b,Displacement-a,10.1109/FLEPS51544.2021.9469839
-M. Ntagios et al. 2023,Capacitance,2,Displacement,6,FDM,1,0,300,3.90E-01,1.30E-03,b,Carbon,1,a,FDM-b,Displacement-a,10.1109/JSEN.2022.3179233
-X. Karagiorgis et al. 2022,Capacitance,2,Displacement,6,DIW,2,0,17,1.56E-01,9.20E-03,b,Metal,2,b,DIW-b,Displacement-b,10.1109/FLEPS53764.2022.9781553
-M. Ntagios et al. 2020,Capacitance,2,Displacement,6,FDM/DIW,3,0,10,3.74E-02,3.74E-03,b,Metal,2,a,FDM/DIW-b,Displacement-a,10.1002/aisy.201900080
-Q. Mu et al. 2017,Capacitance,2,Displacement,6,DLP,5,0,5.5,7.50E-02,1.36E-02,b,Carbon,1,b,DLP-b,Displacement-b,10.1016/j.addma.2017.08.011
-C. Okutani et al. 2022,Inductance,3,Displacement,6,SLA,6,0,0.25,9.73E-02,3.89E-01,a,Liquid,3,a,SLA-a,Displacement-a,10.1002/admt.202101657
-X. Zhou et al. 2023,Transistor,5,Other,8,AJP,4,0,0.5,6.00E-01,1.20E+00,b,Other,5,b,AJP-b,Other-b,10.1002/admt.202201272
+Reference,Ele principle,Sensing,Print,M0,M,Delta Er,Rel Sensitivity,Directly Printed,Mat,Custom mat,DOI
+Z. Li et al. 2023,Piezoresistive,Porous,FDM,0,5700.0,-0.75,0.000526,Yes,Carbon,Yes,10.1002/smll.202301378
+C. Ma et al. 2023,Piezoresistive,Material,DIW,0,10.0,4500.0,450.0,Yes,Carbon,Yes,10.1016/j.jmapro.2023.01.008
+M. Binelli et al. 2023,Piezoresistive,Material,DIW,200,1000.0,1.74,0.00217,Yes,Carbon,Yes,10.1038/s41598-023-29261-0
+Z. Tang et al. 2020,Piezoresistive,Surface,DIW,0,175.0,16.0,0.0914,Yes,Carbon,Yes,10.1021/acsami.0c06977
+T. Xia et al. 2021,Piezoresistive,Microcracks,SLA,0,0.1,0.42,4.2,No,Metal,No,10.1002/admt.202000984
+Y. Yin et al. 2021,Piezoresistive,Porous,DLP,0,130.0,133.0,1.02,No,Carbon,Yes,10.1021/acsami.0c21407 
+H. Moeinnia et al. 2024,Capacitive,Displacement,FDM,0,2500.0,0.5,0.0002,Yes,Carbon,No,10.1038/s41528-024-00309-z
+M. Ntagios et al. 2021,Capacitive,Displacement,FDM,0,35.0,0.125,0.00357,Yes,Carbon,No,10.1109/FLEPS51544.2021.9469839
+M. Ntagios et al. 2023,Capacitive,Displacement,FDM,0,300.0,0.39,0.0013,Yes,Carbon,No,10.1109/JSEN.2022.3179233
+X. Karagiorgis et al. 2022,Capacitive,Displacement,DIW,0,17.0,0.156,0.0092,Yes,Metal,Yes,10.1109/FLEPS53764.2022.9781553
+M. Ntagios et al. 2020,Capacitive,Displacement,FDM/DIW,0,10.0,0.0374,0.00374,Yes,Metal,No,10.1002/aisy.201900080
+Q. Mu et al. 2017,Capacitive,Displacement,DLP,0,5.5,0.075,0.0136,Yes,Carbon,Yes,10.1016/j.addma.2017.08.011
+C. Okutani et al. 2022,Inductive,Displacement,SLA,0,0.25,0.0973,0.389,No,Liquid,No,10.1002/admt.202101657
+X. Zhou et al. 2023,Transistor,Other,AJP,0,0.5,0.6,1.2,Yes,Other,Yes,10.1002/admt.202201272
