@@ -137,7 +137,8 @@
     }
 
     function loadAndPlot(csvPath, divId, mode, title, xlabel, ylabel) {
-      Papa.parse(csvPath, {
+      const cacheBuster = `?_v=${Date.now()}`;
+      Papa.parse(`${csvPath}${cacheBuster}`, {
         download: true,
         header: false,
         complete: function(results) {
