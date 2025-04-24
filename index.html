@@ -143,12 +143,9 @@
         header: false,
         complete: function(results) {
           const maxColumns = Math.max(...results.data.map(r => r.length));
-          const paddedData = results.data.map(row => {
-            while (row.length < maxColumns) row.push('');
-            return row;
-          });
+          const cleanedData = results.data.filter(row => row.length === maxColumns);
 
-          const data = paddedData.slice(1); // Skip header
+          const data = cleanedData.slice(1); // Skip header
 
           const x = data.map(row => parseFloat(row[5]) - parseFloat(row[4]));
           const y = data.map(row => parseFloat(row[7]));
