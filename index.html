@@ -104,32 +104,32 @@
     };
 
     const markerShapeMapPrinting = {
-      "FDM-a": "square-open", "FDM-b": "square",
-      "DIW-a": "triangle-up-open", "DIW-b": "triangle-up",
-      "FDM/DIW-a": "circle-open", "FDM/DIW-b": "circle",
-      "AJP-a": "triangle-down-open", "AJP-b": "triangle-down",
-      "SLA-a": "diamond-open", "SLA-b": "diamond",
-      "DLP-a": "pentagon-open", "DLP-b": "pentagon",
-      "SLS-a": "hexagon-open", "SLS-b": "hexagon"
+      "FDM-N": "square-open",         "FDM-Y": "square",
+      "DIW-N": "triangle-up-open",    "DIW-Y": "triangle-up",
+      "FDM/DIW-N": "circle-open",     "FDM/DIW-Y": "circle",
+      "AJP-N": "triangle-down-open",  "AJP-Y": "triangle-down",
+      "SLA-N": "diamond-open",        "SLA-Y": "diamond",
+      "DLP-N": "pentagon-open",       "DLP-Y": "pentagon",
+      "SLS-N": "hexagon-open",        "SLS-Y": "hexagon"
     };
 
     const markerShapeMapSensing = {
-      "Material-a": "square", "Material-b": "square-open",
-      "Auxetic-a": "triangle-up", "Auxetic-b": "triangle-up-open",
-      "Surface-a": "circle", "Surface-b": "circle-open",
-      "Porous-a": "triangle-down", "Porous-b": "triangle-down-open",
-      "Microcracks-a": "diamond", "Microcracks-b": "diamond-open",
-      "Displacement-a": "pentagon", "Displacement-b": "pentagon-open",
-      "Alignment-a": "hexagon", "Alignment-b": "hexagon-open",
-      "Other-a": "cross", "Other-b": "cross-open"
+      "Material-N": "square-open",           "Material-Y": "square",
+      "Auxetic-N": "triangle-up-open",       "Auxetic-Y": "triangle-up",
+      "Surface-N": "circle-open",            "Surface-Y": "circle",
+      "Porous-N": "triangle-down-open",      "Porous-Y": "triangle-down",
+      "Microcracks-N": "diamond-open",       "Microcracks-Y": "diamond",
+      "Displacement-N": "pentagon-open",     "Displacement-Y": "pentagon",
+      "Alignment-N": "hexagon-open",         "Alignment-Y": "hexagon",
+      "Other-N": "cross-open",               "Other-Y": "cross"
     };
 
     const sensorMap = {
-      1: "Piezoresistive", 2: "Capacitive", 3: "Inductive", 4: "Frequency", 5: "Transistor"
+      "Piezoresistive":1, "Capacitive":2, "Inductive":3, "Frequency":4, "Transistor":5
     };
 
     const materialMap = {
-      1: "Carbon", 2: "Metal", 3: "Liquid", 4: "Wire", 5: "Other"
+      "Carbon":1, "Metal":2, "Liquid":3, "Wire":4, "Other":5
     };
 
     function getColor(value) {
@@ -150,13 +150,13 @@
 
           const data = paddedData.slice(1); // Skip header
 
-          const x = data.map(row => parseFloat(row[8]) - parseFloat(row[7]));
-          const y = data.map(row => parseFloat(row[10]));
-          const ele = data.map(row => parseInt(row[2]));
-          const mat = data.map(row => parseInt(row[13]));
-          const process = data.map(row => row[15]);
-          const sense = data.map(row => row[16]);
-          const doi = data.map(row => row[17]);
+          const x = data.map(row => parseFloat(row[5]) - parseFloat(row[4]));
+          const y = data.map(row => parseFloat(row[7]));
+          const ele = data.map(row => row[1]);
+          const mat = data.map(row => row[9]);
+          const process = data.map(row => row[3]+"-"+row[8][0]);
+          const sense = data.map(row => row[2]+"-"+row[10][0]);
+          const doi = data.map(row => row[11]);
 
           const traces = [];
 
@@ -176,15 +176,15 @@
                   mode: 'markers',
                   type: 'scatter',
                   name: p.slice(0, -2),
-                  legendgroup: sensorMap[e],
-                  legendgrouptitle: { text: sensorMap[e] },
+                  legendgroup: e,
+                  legendgrouptitle: { text: e },
                   marker: {
                     size: 10,
                     symbol: markerShapeMapPrinting[p] || 'circle',
-                    color: getColor(e),
+                    color: getColor(sensorMap[e]),
                     line: { width: 2, color: 'black' }
                   },
-                  hovertemplate: `DOI: %{text}<br>Process: ${p.slice(0, -2)}<br>Ele: ${sensorMap[e]}${p.endsWith('a') ? " (Post)" : ""}<extra></extra>`
+                  hovertemplate: `DOI: %{text}<br>Process: ${p.slice(0, -2)}<br>Ele: ${e}${p.endsWith('N') ? " (Post)" : ""}<extra></extra>`
                 });
               }
             }
@@ -205,15 +205,15 @@
                   mode: 'markers',
                   type: 'scatter',
                   name: s.slice(0, -2),
-                  legendgroup: materialMap[m],
-                  legendgrouptitle: { text: materialMap[m] },
+                  legendgroup: m,
+                  legendgrouptitle: { text: m },
                   marker: {
                     size: 10,
                     symbol: markerShapeMapSensing[s] || 'circle',
-                    color: getColor(m),
+                    color: getColor(materialMap[m]),
                     line: { width: 2, color: 'black' }
                   },
-                  hovertemplate: `DOI: %{text}<br>Sensing: ${s.slice(0, -2)}<br>Material: ${materialMap[m]}${s.endsWith('b') ? " (Custom)" : ""}<extra></extra>`
+                  hovertemplate: `DOI: %{text}<br>Sensing: ${s.slice(0, -2)}<br>Material: ${m}${s.endsWith('Y') ? " (Custom)" : ""}<extra></extra>`
                 });
               }
             }
