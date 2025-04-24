@@ -37,7 +37,7 @@
 
     .plot {
       width: 100%;
-      min-height: 700px;
+      min-height: 800px;
     }
   </style>
 </head>
@@ -74,6 +74,30 @@
   </div>
 
   <script>
+    function setGridLayout() {
+      const grid = document.querySelector('.grid');
+      const aspectRatio = window.innerWidth / window.innerHeight;
+
+      // Store layout mode globally
+      window.isPortraitMode = aspectRatio < 1;
+
+      if (window.isPortraitMode) {
+        // Portrait (tall screen) → 1 column
+        grid.classList.remove('two-columns');
+        grid.classList.add('one-column');
+      } else {
+        // Landscape (wide screen) → 2 columns
+        grid.classList.remove('one-column');
+        grid.classList.add('two-columns');
+      }
+    }
+
+    // Call once on page load
+    setGridLayout();
+
+    // Call again on window resize/orientation change
+    window.addEventListener('resize', setGridLayout);
+
     const colorMap = {
       1: "#648fff", 2: "#785ef0", 3: "#dc267f", 4: "#fe6100", 5: "#ffb000"
     };
@@ -193,6 +217,8 @@
             }
           }
 
+          const baseFontSize = window.isPortraitMode ? 12 : 16;
+
           const layout = {
             title: title,
             xaxis: {
@@ -214,9 +240,9 @@
               y: -0.2,
               groupclick: "toggleitem"
             },
-            margin: { b: 250 },
+            margin: { b: 350 },
             font: {
-              size: 16,
+              size: baseFontSize,
               family: 'Arial, sans-serif'
             },
           };
@@ -241,26 +267,7 @@
     loadAndPlot('Data/StrainData.csv', 'plot-strain-left', 'left', 'Strain: Printing Process vs Electrical Principle','Strain', 'Gauge factor')
     loadAndPlot('Data/StrainData.csv', 'plot-strain-right', 'right', 'Strain: Material vs Sensing Basis','Strain', 'Gauge Factor')
 
-    function setGridLayout() {
-      const grid = document.querySelector('.grid');
-      const aspectRatio = window.innerWidth / window.innerHeight;
-
-      if (aspectRatio < 1) {
-        // Portrait (tall screen) → 1 column
-        grid.classList.remove('two-columns');
-        grid.classList.add('one-column');
-      } else {
-        // Landscape (wide screen) → 2 columns
-        grid.classList.remove('one-column');
-        grid.classList.add('two-columns');
-      }
-    }
-
-    // Call once on page load
-    setGridLayout();
-
-    // Call again on window resize/orientation change
-    window.addEventListener('resize', setGridLayout);
+    
   </script>
 </body>
 </html>
